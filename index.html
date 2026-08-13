@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<main>
+    <div class="card">
+        <section class="card-texts">
+             <h1 id="titulo">Usuários Cadastrados:</h1>
+             <div class="search-box">
+             <form action="/buscar" method="get">
+            </form>
+            </div>
+            <div class="busca-container">
+            <div class="search-box">
+            <input type="search" name="q" placeholder="Pesquisar no site..." required>
+            </div>
+
+            <div class="btn-filtrar">
+            <button type="submit">Filtrar</button>
+            </div>
+
+            <div class="btn-buscar">
+            <button type="submit">Buscar</button>
+            </div>
+
+            </div>
+            </form>
+
+             <ul id="Usuários_Cadastrados"></ul>
+
+             <h1 id="titulo">Entre para nossa Comunidade</h1>
+         <form>
+            <p for="email">E-mail:</p>
+            <input type="email" name="email" id="email" class="text-box">
+        </form>
+         <form>
+            <p for="data">Data de Nascimento:</p>
+            <input type="date" name="data" id="data" class="text-box">
+        </form>
+        <form>
+            <p for="pwd">Senha:</p>
+            <input type="password" id="pwd" name="pwd" class="text-box">
+        </form>
+        <form>
+            <p for="pwd">Estado:</p>
+            <input type="password" id="pwd" name="pwd" class="text-box">
+        </form>
+        <button id="botao">Finalizar Cadastro</button>
+    </div>
+    </section>
+    </div>
+</main>
+
+<script src="Catalogo_front.js"></script>
+
+</body>
+</html>

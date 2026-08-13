@@ -1,0 +1,104 @@
+body{
+    transition: 0.5s;
+    background-color: rgb(175, 232, 255);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: rgb(8, 55, 94);
+}
+
+h1{
+    margin-bottom: 50px;
+    text-align: center;
+    place-items: center;
+}
+
+.card{
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+   width: 420px;
+  height:  auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: rgb(24, 140, 185) 0px 0px 10px ;
+}
+
+
+.text-box{
+ width: 400px;
+    height: 44px;
+    border-radius: 5px;
+    background-color: rgb(244, 250, 253);
+    border: 1px solid rgb(117, 137, 150);
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+textarea,.text-box{
+    color:rgb(8, 55, 94)
+}
+
+.busca-container {
+    display: flex;         /* Coloca os elementos lado a lado */
+    align-items: center;    /* Alinha verticalmente no centro */
+    justify-content: center;/* Centraliza o bloco todo na tela (opcional) */
+    gap: 8px;              /* Cria um espaço/distância entre eles */
+}
+
+.busca-container button {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column; /* Coloca a caixa de busca e os botões em linhas separadas */
+    align-items: center;    /* Centraliza tudo no meio */
+    gap: 12px;              /* Espaço vertical entre a caixa e os botões */
+    margin-top: 30px;        /* Deixa bem PERTO do título acima */
+    margin-bottom: 30px;
+}
+
+.search-box input{
+    width: 230px;
+    height: 30px;
+    
+}
+
+.btn-filtrar button{
+    width: 70px;
+    height: 40px;
+    background-color: rgb(134, 133, 133);
+    border-color: rgb(119, 116, 116);
+    color: #fff;
+}
+
+.btn-buscar button{
+    width: 80px;
+    height: 40px;
+}
+
+input:focus {
+  background-color: white;
+  border-color: rgb(57, 171, 247);;
+}
+
+button{
+    background-color: rgb(19, 108, 180);
+    color:white ;
+    width: 260px;
+    height: 40px;
+    border: 1px solid rgb(24, 133, 206);
+    border-radius: 5px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: rgb(11, 78, 133);
+}

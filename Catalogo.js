@@ -13,7 +13,8 @@ app.use(express.json());
 const cadastros = [
   { id: 1, nome: "Franca Roland", email: "franca@email.com", senha: '0998765', estado: "Santa Catarina"},
   { id: 2, nome: "Lumian Lee", email: "lumians@email.com", senha: '4378755', estado: "Minas Gerais"},
-  { id: 3, nome: "Andrezito Rossi", email: "andrezito@email.com", senha: '3964541', estado: "Santa Catarina"}
+  { id: 3, nome: "Andrezito Rossi", email: "andrezito@email.com", senha: '3964541', estado: "Santa Catarina"},
+  { id: 3, nome: "Caíque Cerqueira", email: "caique@email.com", senha: '9374563', estado: "Ceará"}
 ];
 
 // Rota GET para a raiz (/)
@@ -31,8 +32,8 @@ app.get('/cadastros/filtrar', (req, res) => {
     const { estado } = req.query;
 
     if (estado) {
-      const filtrados = estado.filter(uf => uf.estado() === estado())
-      return(filtrados)
+      const filtrados = cadastros.filter(uf => uf.estado.toLowerCase() === estado.toLowerCase())
+      return res.json(filtrados);
     }
 
     res.json(cadastros);
@@ -42,6 +43,12 @@ app.get('/cadastros/filtrar', (req, res) => {
 app.get('/cadastros/:id', (req, res) => {
   const {id} = req.params;
   res.send(`Buscando o usuário com o ID: ${id}`);
+
+   if (usuario) {
+    res.json(usuario);
+  } else {
+    res.status(404).json({ erro: "Usuário não encontrado" });
+  }
 });
 
 
@@ -62,9 +69,16 @@ app.post('/cadastros', (req, res) => {
 });
 
 // Rota DELETE para deletar um cadastro com ID automático
-app.delete('/cadastros/:id', (req,res) => {
-const { id } = req.params;
- console.log(`Removendo o item com id: ${id}`);
+app.delete('/cadastros/:id', (req, res) => {
+  const { id } = req.params;
+  const index = cadastros.findIndex(u => u.id === Number(id));
+  
+  if (index !== -1) {
+    cadastros.splice(index, 1);
+    return res.status(200).json({ mensagem: "Usuário deletado com sucesso!" });
+  } else {
+    return res.status(404).json({ erro: "Usuário não encontrado" });
+  }
 });
 
 // Inicializando o servidor
