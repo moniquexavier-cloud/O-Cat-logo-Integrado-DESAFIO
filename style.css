@@ -64,23 +64,24 @@ textarea,.text-box{
     
 }
 
-.btn-filtrar button{
+.btn-buscar button{
     width: 70px;
     height: 40px;
-    background-color: rgb(134, 133, 133);
-    border-color: rgb(119, 116, 116);
-    color: #fff;
 }
 
-.btn-buscar button{
+.btn-mostrar button{
     width: 80px;
     height: 40px;
+    background-color: white;
+    color:rgb(141, 139, 139) ;
+    border: 2px solid rgb(141, 139, 139)
 }
 
 input:focus {
   background-color: white;
   border-color: rgb(57, 171, 247);;
 }
+
 
 button{
     background-color: rgb(19, 108, 180);
