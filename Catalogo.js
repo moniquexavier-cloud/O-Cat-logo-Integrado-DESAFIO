@@ -64,7 +64,6 @@ app.get('/cadastros/:id', (req, res) => {
   }
 });
 //o Number serve para transformar a atring que era id em um número
-
 //condição se if é verdadeiro ele mostra o resultado e se if for falso ele dá uma mensagem de erro
 
 // Rota POST para adicionar um novo cadastro com ID automático
@@ -93,7 +92,7 @@ app.delete('/cadastros/:id', (req, res) => {
   // o find percorre o array
   // o index é o indice de posição do item que tem aquele ID.
 
-  // se o idice não for -1 somente ele é deletado do array
+  // se o indice não for -1 somente ele é deletado do array
   if (index !== -1) {
     cadastros.splice(index, 1);
     return res.status(200).json({ mensagem: "Usuário deletado com sucesso!" });
