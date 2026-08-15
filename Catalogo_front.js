@@ -105,9 +105,13 @@ async function buscar() {
 
 // === Adicionando um novo Cadatro ===
 
+// o "event" é um objeto que guarda informações detalhadas sobre uma ação que acabou de acontecer
+// nesse caso armazenar as informações do novo usuário
+// o "event.preventDefault" serve para a validação dos dados cadastrados, impedindo que fatores externos atrapalhem
 async function cadastrarUsuario(event) {
   event.preventDefault();
 
+// cria um objeto JavaScript com os dados capturados dos campos HTML através de seus IDs 
   const novoUsuario = {
     nome: document.getElementById('nome').value,
     email: document.getElementById('email').value,
@@ -116,41 +120,63 @@ async function cadastrarUsuario(event) {
   };
 
   try {
+    //chama o backend
     const res = await fetch(`${API_URL}/cadastros`, {
+    //Define o método HTTP para criação de recurso.
       method: 'POST',
+    //Informa ao servidor que o corpo da requisição está formatado em JSON.
       headers: { 'Content-Type': 'application/json' },
+    //Converte o objeto JavaScript em uma string no formato JSON para envio.
       body: JSON.stringify(novoUsuario)
     });
 
+    // se todo o processo funcionar
     if (res.ok) {
+    // limpa todos os campos do formulário na tela
       formCadastro.reset();
+    // Chama a função de carregar usuários para exibir o novo usuário cadastrado
       carregarUsuarios();
     }
+    // Se ocorrer algum erro, ele é transformado em mensagem
   } catch (erro) {
     console.error('Erro ao cadastrar:', erro);
   }
 }
 
-// === Deletando Cadastro ===
+// === Deletando um Cadatro ===
+
 async function deletarUsuario(id) {
   try {
+    // chama o cadastro do backend através da API
     const res = await fetch(`${API_URL}/cadastros/${id}`, {
+    //metodo para deletar
       method: 'DELETE'
     });
 
+    // se tudo der certo, ele recarrega todos os cadastros sem o usuário deletado
     if (res.ok) {
       carregarUsuarios();
     }
+    // Se ocorrer algum erro, ele é transformado em mensagem
   } catch (erro) {
     console.error('Erro ao deletar:', erro);
   }
 }
 
+// === Ligando as funções aos botões da API ===
+
+//o botão buscar é ligado a function buscar, aplicando filtros a suas pesquisas
 btnBuscar.addEventListener('click', buscar);
+
+//o botão "mostrar" retira os filtros 
 btnMostrar.addEventListener('click', () => {
   inputEstado.value = '';
+//e mostra todos os usuários
   carregarUsuarios();
 });
+// vincula o envio do formulário (formCadastro) à função cadastrarUsuario
+// o evento submit é disparado quando o usuário clica no botão de cadastrar dentro de um campo de texto
 formCadastro.addEventListener('submit', cadastrarUsuario);
 
+// Garante que quando o usuário abra o site estejam sendo mostrados todos os cadastros
 carregarUsuarios();
