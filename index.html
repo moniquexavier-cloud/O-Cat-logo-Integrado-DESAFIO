@@ -4,59 +4,60 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catálogo de Usuários</title>
 </head>
 <body>
 <main>
     <div class="card">
         <section class="card-texts">
-             <h1 id="titulo">Usuários Cadastrados:</h1>
-             <div class="search-box">
-             <form action="/buscar" method="get">
-            </form>
-            </div>
+            <h2>Usuários Cadastrados:</h2>
+            
+            <!-- Busca / Filtro por estado -->
             <div class="busca-container">
-            <div class="search-box">
-            <input type="search" name="q" placeholder="Pesquisar no site..." required>
+                <div class="search-box">
+                    <input type="text" id="input-estado" placeholder="Filtrar por Estado (ex: Ceará)...">
+                </div>
+                <div class="btn-buscar">
+                    <button type="button" id="btn-buscar">Buscar</button>
+                </div>
+                <div class="btn-mostrar">
+                    <button type="button" id="btn-mostrar">Mostrar Todos</button>
+                </div>
             </div>
 
-            <div class="btn-filtrar">
-            <button type="submit">Filtrar</button>
-            </div>
+            <!-- Lista de Usuários do Backend -->
+            <ul id="usuarios_cadastrados"></ul>
 
-            <div class="btn-buscar">
-            <button type="submit">Buscar</button>
-            </div>
+            <h2>Entre para nossa Comunidade</h2>
+            
+            <!-- Formulário de Cadastro -->
+            <form id="form-cadastro">
+                <div class="field-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" class="text-box" required>
+                </div>
 
-            </div>
+                <div class="field-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" class="text-box" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" class="text-box" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" class="text-box" required>
+                </div>
+
+                <button type="submit" id="botao">Finalizar Cadastro</button>
             </form>
-
-             <ul id="Usuários_Cadastrados"></ul>
-
-             <h1 id="titulo">Entre para nossa Comunidade</h1>
-         <form>
-            <p for="email">E-mail:</p>
-            <input type="email" name="email" id="email" class="text-box">
-        </form>
-         <form>
-            <p for="data">Data de Nascimento:</p>
-            <input type="date" name="data" id="data" class="text-box">
-        </form>
-        <form>
-            <p for="pwd">Senha:</p>
-            <input type="password" id="pwd" name="pwd" class="text-box">
-        </form>
-        <form>
-            <p for="pwd">Estado:</p>
-            <input type="password" id="pwd" name="pwd" class="text-box">
-        </form>
-        <button id="botao">Finalizar Cadastro</button>
-    </div>
-    </section>
+        </section>
     </div>
 </main>
 
 <script src="Catalogo_front.js"></script>
-
 </body>
 </html>
