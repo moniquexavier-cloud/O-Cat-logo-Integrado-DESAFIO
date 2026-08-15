@@ -49,20 +49,23 @@ app.get('/cadastros/filtrar', (req, res) => {
     // Retorna a lista inteira se o usuário colocar somente /cadastros/filtrar sem colocar parametro
 });
 
-// Rota GET para listar os cadastros filtrados na base do id (/cadastros/:id)
+// Rota GET para listar o cadastro filtrado pelo ID
 app.get('/cadastros/:id', (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
+  
+  // Encontra o usuário no array cujo id seja igual ao enviado na URL
   const usuario = cadastros.find(u => u.id === Number(id));
-  //o Number serve para transformar a atring que era id em um número
 
-  //condição se if é verdadeiro ele mostra o resultado e se if for falso ele dá uma mensagem de erro
-   if (usuario) {
-    res.json(usuario);
+  // Se encontrar, retorna o objeto completo do usuário em JSON
+  if (usuario) {
+    return res.json(usuario);
   } else {
-    res.status(404).json({ erro: "Usuário não encontrado" });
+    return res.status(404).json({ erro: "Usuário não encontrado" });
   }
 });
+//o Number serve para transformar a atring que era id em um número
 
+//condição se if é verdadeiro ele mostra o resultado e se if for falso ele dá uma mensagem de erro
 
 // Rota POST para adicionar um novo cadastro com ID automático
 app.post('/cadastros', (req, res) => {
